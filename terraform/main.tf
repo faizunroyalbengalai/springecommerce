@@ -28,6 +28,19 @@ variable "instance_type" {
   type    = string
   default = "t3.micro"
 }
+variable "db_name" {
+  type    = string
+  default = ""
+}
+variable "db_username" {
+  type    = string
+  default = ""
+}
+variable "db_password" {
+  type      = string
+  default   = ""
+  sensitive = true
+}
 
 data "aws_vpc" "default" {
   default = true
