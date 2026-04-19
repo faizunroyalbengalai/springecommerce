@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-java@v4
         with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: pytest --tb=short -q 2>/dev/null || echo "No tests found"
+          distribution: temurin
+          java-version: '21'
+      - run: mvn test -q
 
   provision:
     name: Provision EC2 (Terraform)
